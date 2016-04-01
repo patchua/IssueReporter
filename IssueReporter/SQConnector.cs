@@ -106,7 +106,7 @@ namespace IssueReporter
                 {
                     responsebytes = client.UploadValues(SQServerUrl + post_query, "POST", post_parameters);
                 }
-                catch (WebException)
+                catch (WebException ex)
                 {
                     //if 401 this is OK
                     //Console.WriteLine(ex.Message);
@@ -215,7 +215,9 @@ namespace IssueReporter
         {
             INFO = 10, // Info in report
             MINOR = 3, // Warning in report
-            MAJOR = 2  // Error in report                             
+            MAJOR = 2,  // Error in report
+            CRITICAL = 1 // Error (strong) in report                                 
+                
         }
 
         public class PostIssueResponse
